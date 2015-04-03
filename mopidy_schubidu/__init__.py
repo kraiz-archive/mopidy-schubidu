@@ -9,8 +9,8 @@ __version__ = '0.1.0'
 
 
 class Extension(ext.Extension):
-    dist_name = 'Mopidy-Gmui'
-    ext_name = 'gmui'
+    dist_name = 'Mopidy-Schubidu'
+    ext_name = 'schubidu'
     version = __version__
 
     def get_default_config(self):

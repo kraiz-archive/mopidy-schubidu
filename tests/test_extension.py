@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-from mopidy_gmui import Extension
+from mopidy_schubidu import Extension
 
 
 def test_get_default_config():
@@ -8,5 +8,5 @@ def test_get_default_config():
 
     config = ext.get_default_config()
 
-    assert '[gmui]' in config
+    assert '[schubidu]' in config
     assert 'enabled = true' in config

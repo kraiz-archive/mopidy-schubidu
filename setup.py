@@ -12,9 +12,9 @@ def get_version(filename):
 
 
 setup(
-    name='Mopidy-Gmui',
-    version=get_version('mopidy_gmui/__init__.py'),
-    url='https://github.com/kraiz/mopidy-gmui',
+    name='Mopidy-Schubidu',
+    version=get_version('mopidy_schubidu/__init__.py'),
+    url='https://github.com/kraiz/mopidy-schubidu',
     license='Apache License, Version 2.0',
     author='Lars Kreisz',
     author_email='lars.kreisz@gmail.com',
@@ -30,7 +30,7 @@ setup(
     ],
     entry_points={
         'mopidy.ext': [
-            'gmui = mopidy_gmui:Extension',
+            'schubidu = mopidy_schubidu:Extension',
         ],
     },
     classifiers=[
