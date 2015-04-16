@@ -1,0 +1,16 @@
+<md-content>
+  <md-progress-circular md-mode="indeterminate"
+                        ng-show="waitingForResults"
+                        layout-align="center"></md-progress-circular>
+
+  <md-list ng-hide="waitingForResults">
+    <md-list-item class="md-2-line" ng-repeat="tltrack in tltracks | orderBy:tlid">
+      <img class="md-avatar" alt="{{ tltrack.track.name }}"
+           cover-from="{{ tltrack.track.album }}" cover-size="40" />
+      <div class="md-list-item-text">
+        <h3>{{ tltrack.track.name }}</h3>
+        <h4>{{ tltrack.track.artists[0].name }}</h4>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>

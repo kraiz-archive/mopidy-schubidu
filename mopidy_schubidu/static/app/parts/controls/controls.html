@@ -1,0 +1,26 @@
+<section layout="row" layout-align="center center">
+  <md-button>
+    <ng-md-icon icon="shuffle" size="24" aria-label="Random"></ng-md-icon>
+  </md-button>
+  <md-button>
+    <ng-md-icon icon="skip_previous" size="24" aria-label="Previous" ng-click="previous()"></ng-md-icon>
+  </md-button>
+  <md-button>
+    <ng-md-icon icon="{{ playing ? 'pause' : 'play_arrow' }}" size="36"
+                aria-label="{{ playing ? 'Pause' : 'Play' }}" ng-click="play()"></ng-md-icon>
+  </md-button>
+  <md-button>
+    <ng-md-icon icon="skip_next" size="24" aria-label="Next" ng-click="next()"></ng-md-icon>
+  </md-button>
+
+  <div class="volume" layout="row" layout-align="center center">
+    <ng-md-icon icon="volume_down" size="16"></ng-md-icon>
+    <md-slider min="0" max="100" aria-label="Volume"
+               ng-model="volume"
+               ng-model-options="{getterSetter: true}"></md-slider>
+    <ng-md-icon icon="volume_up" size="16"></ng-md-icon>
+  </div>
+</section>
+<section layout="row" layout-align="center center">
+
+</section>

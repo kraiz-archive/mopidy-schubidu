@@ -1,0 +1,8 @@
+schubidu-controls .volume {
+    margin-left: 25px;
+    min-width: 100px;
+}
+
+schubidu-controls .volume md-slider {
+    width: 100%;
+}

@@ -1,21 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="schubidu">
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+  <title>Schubidu</title>
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.min.css">
+  <!--<link rel="stylesheet"-->
+      <!--href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.min.css">-->
+  <link rel="stylesheet"
+        href="https://rawgit.com/angular/bower-material/master/angular-material.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="app/parts/controls/controls.css">
+  <link rel="stylesheet" href="app/parts/search/search.css">
+  <link rel="stylesheet" href="app/parts/tracklist/tracklist.css">
 </head>
-<body>
+<body layout="column" ng-controller="AppCtrl">
 
+<md-toolbar layout="row" layout-sm="column">
+  <schubidu-controls flex></schubidu-controls>
+  <schubidu-searchform flex layout-fill layout-padding></schubidu-searchform>
+</md-toolbar>
 
-<script type="text/javascript" src="/mopidy/mopidy.min.js"></script>
+<div layout="row" flex>
+  <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+              md-is-locked-open="$mdMedia('gt-sm')">
+    <schubidu-tracklist></schubidu-tracklist>
+  </md-sidenav>
+  <div layout="column" flex ng-view></div>
+</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-aria.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-aria.min.js"></script>
 
+<script src="https://rawgit.com/angular/bower-material/master/angular-material.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.min.js"></script>-->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.4/angular-filter.min.js"></script>
+
+<script src="/mopidy/mopidy.min.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/utils.js"></script>
+<script src="app/services/mopidy.js"></script>
+<script src="app/parts/controls/controls.js"></script>
+<script src="app/parts/tracklist/tracklist.js"></script>
+<script src="app/parts/home/home.js"></script>
+<script src="app/parts/search/search.js"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+schubidu-searchform md-input-container {
+    padding: 0px;
+}
+
+schubidu-searchform[layout-padding] {
+    padding: 6px;
+}
+
+
+.search-results md-progress-circular {
+    margin: 20px auto;
+}
+
+.search-results md-grid-tile-footer {
+    background: rgba(0,0,0,.75);
+}

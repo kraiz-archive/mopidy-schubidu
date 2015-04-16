@@ -1,0 +1,63 @@
+<md-content class="search-results" flex layout-fill layout-padding layout="column">
+
+  <md-progress-circular md-mode="indeterminate"
+                        ng-show="waitingForResults"
+                        layout-align="center"></md-progress-circular>
+
+  <div ng-hide="waitingForResults">
+    <section>
+      <h2>Artists</h2>
+      <md-grid-list
+              md-cols-sm="1" md-cols-md="1" md-cols-lg="2" md-cols-gt-lg="4"
+              md-row-height="4:3"
+              md-gutter="8px" md-gutter-gt-sm="4px">
+        <md-grid-tile ng-repeat="artist in result.artists | limitTo:8 | unique:'uri' track by artist.uri"
+                      cover-from="{{ artist }}" cover-size="300">
+          <md-grid-tile-footer><h3>{{ artist.name }}</h3></md-grid-tile-footer>
+        </md-grid-tile>
+      </md-grid-list>
+    </section>
+    <section>
+      <h2>Albums</h2>
+      <md-grid-list
+              md-cols-sm="2" md-cols-md="2" md-cols-lg="4" md-cols-gt-lg="8"
+              md-row-height="1:1"
+              md-gutter="8px" md-gutter-gt-sm="4px">
+        <md-grid-tile ng-repeat="album in result.albums | limitTo:16 | unique:'uri' track by album.uri"
+                      cover-from="{{ album }}" cover-size="200">
+          <md-grid-tile-footer><h3>{{ album.name }}</h3></md-grid-tile-footer>
+        </md-grid-tile>
+      </md-grid-list>
+    </section>
+    <section>
+      <h2>Tracks</h2>
+      <table>
+        <thead>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="track in result.tracks | unique:'uri' track by track.uri">
+            <td>{{ track.name }}</td>
+            <td>{{ track.artists[0].name }}</td>
+            <td>{{ track.album.name }}</td>
+            <td class="track-actions">
+              <md-button class="md-icon-button" aria-label="Play as next" title="Play as next">
+                <ng-md-icon icon="play_circle_outline" ng-click="addToTracklist(track, 1)"></ng-md-icon>
+              </md-button>
+              <md-button class="md-icon-button md-accent" aria-label="Append to queue" title="Append to queue">
+                <ng-md-icon icon="queue_music" ng-click="addToTracklist(track)"></ng-md-icon>
+              </md-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</md-content>
+
+
+
+
