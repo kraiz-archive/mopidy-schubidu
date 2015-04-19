@@ -16,6 +16,8 @@
     $scope.tltracks = null;
     $scope.currentTlTrack = null;
 
+
+
     // get initial values
     mopidy.ready(function () {
       mopidy.tracklist.getTlTracks({}).then(function (data) {
@@ -30,6 +32,9 @@
     // update from server
     mopidy.on('event:trackPlaybackStarted', function (data) {
       $scope.currentTlTrack = data.tl_track;
+    });
+    mopidy.on('event:tracklist_changed', function (data) {
+      console.log('tracklist_changed', data);
     });
   }
 

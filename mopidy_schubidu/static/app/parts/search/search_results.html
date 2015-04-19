@@ -45,10 +45,10 @@
             <td hide show-gt-md>{{ track.album.name }}</td>
             <td class="track-actions">
               <md-button class="md-icon-button" aria-label="Play as next" title="Play as next">
-                <ng-md-icon icon="play_circle_outline" ng-click="addToTracklist(track, 1)"></ng-md-icon>
+                <ng-md-icon icon="play_circle_outline" ng-click="playback.playAsNext(track)"></ng-md-icon>
               </md-button>
               <md-button class="md-icon-button md-accent" aria-label="Append to queue" title="Append to queue">
-                <ng-md-icon icon="queue_music" ng-click="addToTracklist(track)"></ng-md-icon>
+                <ng-md-icon icon="queue_music" ng-click="playback.appendToTracklist(track)"></ng-md-icon>
               </md-button>
             </td>
           </tr>

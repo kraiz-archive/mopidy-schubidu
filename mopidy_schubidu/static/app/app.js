@@ -10,6 +10,7 @@
       'schubidu.home',
       'schubidu.controls',
       'schubidu.tracklist',
+      'schubidu.playback',
       'schubidu.search',
       'schubidu.utils'
     ])
@@ -33,14 +34,13 @@
         .otherwise({redirectTo: '/home'});
     });
 
-  function AppCtrl($scope, $mdSidenav, mopidy) {
+  function AppCtrl($scope, $mdSidenav, playback) {
     $scope.toggleSidenav = function (menuId) {
       $mdSidenav(menuId).toggle();
     };
 
-    $scope.play = function(uri) {
-        mopidy.playback.play({"tl_track": uri})
-    };
+    // put playback service into main controller, so every template can call "playback.playAsNext(item)"
+    $scope.playback = playback;
   }
 
 })();
