@@ -6,11 +6,47 @@ schubidu-searchform[layout-padding] {
     padding: 6px;
 }
 
-
 .search-results md-progress-circular {
     margin: 20px auto;
 }
 
 .search-results md-grid-tile-footer {
-    background: rgba(0,0,0,.75);
+    background: rgba(0, 0, 0, .75);
+}
+
+.search-results table.tracks {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.search-results table.tracks tr {
+    border-bottom: 1px solid rgba(0, 0, 0, .02);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.search-results table.tracks tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, .02);
+}
+
+.search-results table.tracks tr:hover {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.search-results table.tracks th {
+    text-align: left;
+}
+
+.search-results table.tracks th, .search-results table.tracks td {
+    padding: 0.1rem 1rem;
+}
+
+.search-results table.tracks th.actions {
+    min-width: 100px;
+}
+
+.search-results table.tracks button.md-button.md-icon-button {
+    height: auto;
+    width: auto;
+    line-height: normal;
+    padding-top: 5px;
 }
