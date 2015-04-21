@@ -26,6 +26,7 @@
       });
       mopidy.playback.getCurrentTlTrack({}).then(function(data){
         $scope.currentTlTrack = data;
+        console.log($scope.currentTlTrack);
       });
     });
 

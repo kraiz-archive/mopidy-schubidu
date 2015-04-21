@@ -9,17 +9,13 @@
         position = position || null;
         var tracks = [];
 
-        console.log(item.__model__);
-
         if (item.__model__ == 'Track') {
           tracks.push(item)
         }
 
-
         mopidy.tracklist.add({
           "tracks": tracks,
-          "at_position": position}).then(function (data) {
-          console.log(data);
+          "at_position": position
         });
       }
 
@@ -27,7 +23,10 @@
       return {
         appendToTracklist: add2tracklist,
         playAsNext: function (item) {
-          add2tracklist(item, 1)
+          mopidy.playback.getCurrentTlTrack({}).then(function(data){
+            console.log(data.tlid);
+            add2tracklist(item, data.tlid);
+          });
         }
       };
     });

@@ -1,3 +1,8 @@
 schubidu-tracklist md-progress-circular {
     margin: 20px auto;
 }
+
+schubidu-tracklist md-list-item.currently-playing .md-list-item-text h3,
+schubidu-tracklist md-list-item.currently-playing .md-list-item-text h4 {
+    font-weight: bold;
+}

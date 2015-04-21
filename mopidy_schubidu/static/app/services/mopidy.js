@@ -8,9 +8,9 @@
       var mopidy = new Mopidy({callingConvention: 'by-position-or-by-name'});
 
       // event logging for debug
-      mopidy.on(function(event, data) {
-        console.log(event, data);
-      })
+      //mopidy.on(function(event, data) {
+      //  console.log(event, data);
+      //})
 
       // track online state
       var isOnline = false;

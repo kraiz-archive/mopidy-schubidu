@@ -2,15 +2,20 @@
   <md-progress-circular md-mode="indeterminate"
                         ng-show="waitingForResults"
                         layout-align="center"></md-progress-circular>
+  <section>
+    <md-list ng-hide="waitingForResults">
+      <md-list-item class="md-2-line"
+                    ng-repeat="tltrack in tltracks track by tltrack.tlid"
+                    ng-class="{'currently-playing': tltrack.tlid === currentTlTrack.tlid}">
+        <img class="md-avatar" alt="{{ tltrack.track.name }}"
+             cover-from="{{ tltrack.track.album }}" cover-size="40"/>
 
-  <md-list ng-hide="waitingForResults">
-    <md-list-item class="md-2-line" ng-repeat="tltrack in tltracks | orderBy:tlid">
-      <img class="md-avatar" alt="{{ tltrack.track.name }}"
-           cover-from="{{ tltrack.track.album }}" cover-size="40" />
-      <div class="md-list-item-text">
-        <h3>{{ tltrack.track.name }}</h3>
-        <h4>{{ tltrack.track.artists[0].name }}</h4>
-      </div>
-    </md-list-item>
-  </md-list>
+        <div class="md-list-item-text">
+          <h3>{{ tltrack.track.name }}</h3>
+          <h4>{{ tltrack.track.artists[0].name }}</h4>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+  </section>
 </md-content>
