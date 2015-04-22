@@ -26,7 +26,6 @@
       });
       mopidy.playback.getCurrentTlTrack({}).then(function(data){
         $scope.currentTlTrack = data;
-        console.log($scope.currentTlTrack);
       });
     });
 
@@ -36,6 +35,12 @@
     });
     mopidy.on('event:tracklist_changed', function (data) {
       console.log('tracklist_changed', data);
+    });
+
+    mopidy.on('event:tracklistChanged', function () {
+      mopidy.tracklist.getTlTracks({}).then(function (data) {
+        $scope.tltracks = data;
+      });
     });
   }
 

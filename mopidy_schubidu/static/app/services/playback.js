@@ -5,6 +5,8 @@
 
     .factory('playback', function (mopidy) {
 
+      var consoleError = console.error.bind(console);
+
       function add2tracklist(item, position) {
         position = position || null;
         var tracks = [];
@@ -16,18 +18,27 @@
         mopidy.tracklist.add({
           "tracks": tracks,
           "at_position": position
-        });
+        })
+      }
+
+      function playAsNext(item) {
+        // we need tracklist and current track to find correct target position
+        mopidy.tracklist.getTlTracks({}).then(function (tlTracks) {
+          mopidy.playback.getCurrentTlTrack({}).then(function (currentTlTrack) {
+            // map tracklist tracks to their tracklist ids and find position of current track
+            var position = tlTracks.map(function (tlTrack) {
+              return tlTrack.tlid
+            }).indexOf(currentTlTrack.tlid);
+            // now we know position, so insert item behind
+            add2tracklist(item, position + 1);
+          }, consoleError);
+        }, consoleError);
       }
 
       // exported service api
       return {
         appendToTracklist: add2tracklist,
-        playAsNext: function (item) {
-          mopidy.playback.getCurrentTlTrack({}).then(function(data){
-            console.log(data.tlid);
-            add2tracklist(item, data.tlid);
-          });
-        }
+        playAsNext: playAsNext
       };
     });
 
