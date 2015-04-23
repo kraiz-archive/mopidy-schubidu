@@ -1,16 +1,33 @@
 <section layout="row" layout-align="center center">
-  <md-button>
-    <ng-md-icon icon="shuffle" size="24" aria-label="Random"></ng-md-icon>
+
+  <md-button ng-click="toggleConsume()"
+             ng-attr-aria-label="{{ consume ? 'Keep' : 'Delete'}} tracks after playback"
+             ng-attr-title="{{ consume ? 'Keep' : 'Delete'}} tracks after playback"
+             hide-md>
+    <ng-md-icon icon="track_changes" size="24" ng-class="{'md-highlight': consume}"></ng-md-icon>
   </md-button>
-  <md-button>
-    <ng-md-icon icon="skip_previous" size="24" aria-label="Previous" ng-click="previous()"></ng-md-icon>
+
+  <md-button ng-click="toggleRandom()"
+             ng-attr-aria-label="Play tracks in {{ random ? '' : 'random '}}order"
+             ng-attr-title="Play tracks in {{ random ? '' : 'random '}}order"
+             hide-md>
+    <ng-md-icon icon="shuffle" size="24" ng-class="{'md-highlight': random}"></ng-md-icon>
   </md-button>
-  <md-button>
-    <ng-md-icon icon="{{ playing ? 'pause' : 'play_arrow' }}" size="36"
-                aria-label="{{ playing ? 'Pause' : 'Play' }}" ng-click="play()"></ng-md-icon>
+
+  <md-button ng-click="previous()"
+             aria-label="Play previous track"
+             title="Play previous track">
+    <ng-md-icon icon="skip_previous" size="36"></ng-md-icon>
   </md-button>
-  <md-button>
-    <ng-md-icon icon="skip_next" size="24" aria-label="Next" ng-click="next()"></ng-md-icon>
+  <md-button ng-click="play()"
+             ng-attr-aria-label="{{ playing ? 'Pause' : 'Play' }}"
+             ng-attr-title="{{ playing ? 'Pause' : 'Play' }}" >
+    <ng-md-icon icon="{{ playing ? 'pause' : 'play_arrow' }}" size="36"></ng-md-icon>
+  </md-button>
+  <md-button ng-click="next()"
+             aria-label="Play next track"
+             title="Play next track">
+    <ng-md-icon icon="skip_next" size="36"></ng-md-icon>
   </md-button>
 
   <div class="volume" layout="row" layout-align="center center">
@@ -20,7 +37,4 @@
                ng-model-options="{getterSetter: true}"></md-slider>
     <ng-md-icon icon="volume_up" size="16"></ng-md-icon>
   </div>
-</section>
-<section layout="row" layout-align="center center">
-
 </section>

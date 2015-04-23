@@ -5,4 +5,9 @@ schubidu-controls .volume {
 
 schubidu-controls .volume md-slider {
     width: 100%;
+    padding: 0 0.5rem;
+}
+
+schubidu-controls .md-button {
+    min-width: 1rem;
 }

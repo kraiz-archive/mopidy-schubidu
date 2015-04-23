@@ -2,6 +2,10 @@ ng-md-icon {
     fill: rgba(255, 255, 255, 0.87);
 }
 
+ng-md-icon.md-highlight {
+    fill: rgb(255,171,64);
+}
+
 .track-actions ng-md-icon {
     fill: rgba(0, 0, 0, 0.87);
 }

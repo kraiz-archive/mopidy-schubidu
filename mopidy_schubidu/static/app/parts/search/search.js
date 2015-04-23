@@ -28,7 +28,6 @@
             }
           });
         });
-        console.log(result);
         // copy into scope
         $scope.result = result;
         $scope.waitingForResults = false;

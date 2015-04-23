@@ -14,6 +14,7 @@
   function schubiduControlsController($scope, mopidy) {
     $scope.playing = false;
     $scope.random = false;
+    $scope.consume = false;
     $scope._volume = 100;
     $scope.volume = function (newVolume) {
       if (angular.isDefined(newVolume)) {
@@ -33,6 +34,9 @@
       mopidy.tracklist.getRandom().then(function (data) {
         $scope.random = data;
       });
+      mopidy.tracklist.getConsume().then(function (data) {
+        $scope.consume = data;
+      });
     });
 
     // update from server
@@ -41,6 +45,16 @@
     });
     mopidy.on('event:volumeChanged', function (data) {
       $scope._volume = data.volume;
+    });
+    mopidy.on('event:optionsChanged', function () {
+      // shitty api here...we don't really know what "option" changed
+      // must be "random" or "consume", so refresh both
+      mopidy.tracklist.getRandom().then(function (data) {
+        $scope.random = data;
+      });
+      mopidy.tracklist.getConsume().then(function (data) {
+        $scope.consume = data
+      });
     });
 
     // button handler
@@ -56,6 +70,12 @@
     };
     $scope.next = function () {
       mopidy.playback.next()
+    };
+    $scope.toggleRandom = function () {
+      mopidy.tracklist.setRandom({value: !$scope.random})
+    };
+    $scope.toggleConsume = function () {
+      mopidy.tracklist.setConsume({value: !$scope.consume})
     };
   }
 })();

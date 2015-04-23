@@ -25,12 +25,16 @@
         // we need tracklist and current track to find correct target position
         mopidy.tracklist.getTlTracks({}).then(function (tlTracks) {
           mopidy.playback.getCurrentTlTrack({}).then(function (currentTlTrack) {
-            // map tracklist tracks to their tracklist ids and find position of current track
-            var position = tlTracks.map(function (tlTrack) {
-              return tlTrack.tlid
-            }).indexOf(currentTlTrack.tlid);
-            // now we know position, so insert item behind
-            add2tracklist(item, position + 1);
+            if (currentTlTrack === null) {
+              add2tracklist(item, 0);
+            } else {
+              // map tracklist tracks to their tracklist ids and find position of current track
+              var position = tlTracks.map(function (tlTrack) {
+                return tlTrack.tlid
+              }).indexOf(currentTlTrack.tlid);
+              // now we know position, so insert item behind
+              add2tracklist(item, position + 1);
+            }
           }, consoleError);
         }, consoleError);
       }
