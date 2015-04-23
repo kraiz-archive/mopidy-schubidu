@@ -6,3 +6,19 @@ schubidu-tracklist md-list-item.currently-playing .md-list-item-text h3,
 schubidu-tracklist md-list-item.currently-playing .md-list-item-text h4 {
     font-weight: bold;
 }
+
+schubidu-tracklist md-list-item .actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+schubidu-tracklist md-list-item .actions button.md-button.md-icon-button {
+    height: 2.8rem;
+}
+
+schubidu-tracklist ng-md-icon {
+    fill: rgba(0, 0, 0, 0.25);
+}
+schubidu-tracklist ng-md-icon:hover {
+    fill: rgba(0, 0, 0, 0.87);
+}

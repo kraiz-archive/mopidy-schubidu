@@ -6,10 +6,6 @@ ng-md-icon.md-highlight {
     fill: rgb(255,171,64);
 }
 
-.track-actions ng-md-icon {
-    fill: rgba(0, 0, 0, 0.87);
-}
-
 md-input-container.md-default-theme > ng-md-icon {
     margin-top: 5px;
     fill: rgba(0, 0, 0, 0.87);

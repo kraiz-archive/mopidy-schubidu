@@ -39,10 +39,20 @@
         }, consoleError);
       }
 
+      function removeFromTracklist(tltrack) {
+        alert('to be implemented soon!')
+      }
+
+      function playNow(tltrack) {
+        alert('to be implemented soon!')
+      }
+
       // exported service api
       return {
         appendToTracklist: add2tracklist,
-        playAsNext: playAsNext
+        playAsNext: playAsNext,
+        playNow: playNow,
+        removeFromTracklist: removeFromTracklist
       };
     });
 

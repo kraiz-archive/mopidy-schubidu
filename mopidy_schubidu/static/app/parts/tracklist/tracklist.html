@@ -4,6 +4,12 @@
                         layout-align="center"></md-progress-circular>
   <section>
     <md-list ng-hide="waitingForResults">
+      <md-list-item ng-show="tltracks.length == 0" class="md-2-line">
+        <div class="md-list-item-text">
+          <h3>Tracklist empty...</h3>
+          <h4>Add songs asap!</h4>
+        </div>
+      </md-list-item>
       <md-list-item class="md-2-line"
                     ng-repeat="tltrack in tltracks track by tltrack.tlid"
                     ng-class="{'currently-playing': tltrack.tlid === currentTlTrack.tlid}">
@@ -13,6 +19,17 @@
         <div class="md-list-item-text">
           <h3>{{ tltrack.track.name }}</h3>
           <h4>{{ tltrack.track.artists[0].name }}</h4>
+
+          <div class="actions" layout="column">
+            <md-button class="md-icon-button" aria-label="Play now" title="Play now"
+                       ng-click="playback.playNow(tltrack)">
+              <ng-md-icon icon="play_arrow"></ng-md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Remove from tracklist" title="Remove from tracklist"
+                       ng-click="playback.removeFromTracklist(tltrack)">
+              <ng-md-icon icon="delete"></ng-md-icon>
+            </md-button>
+          </div>
         </div>
         <md-divider ng-if="!$last"></md-divider>
       </md-list-item>
