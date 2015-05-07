@@ -45,7 +45,7 @@
       }
 
       function playNow(tltrack) {
-        alert('to be implemented soon!')
+        mopidy.playback.play({tlid: tltrack.tlid});
       }
 
       // exported service api
