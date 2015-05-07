@@ -15,7 +15,7 @@
             mopidy.tracklist.add({tracks: [item], at_position: position});
             break;
           case 'Album':
-            mopidy.library.lookup({uri: item.uri}).then(function(data) {
+            mopidy.library.lookup({uri: item.uri}).then(function (data) {
               mopidy.tracklist.add({tracks: data, at_position: position});
             });
             break;
@@ -41,7 +41,7 @@
       }
 
       function removeFromTracklist(tltrack) {
-        alert('to be implemented soon!')
+        mopidy.tracklist.remove({tlid: [tltrack.tlid]});
       }
 
       function playNow(tltrack) {
