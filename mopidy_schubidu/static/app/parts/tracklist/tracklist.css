@@ -13,7 +13,7 @@ schubidu-tracklist md-list-item .actions {
     right: 0;
 }
 schubidu-tracklist md-list-item .actions button.md-button.md-icon-button {
-    height: 2.8rem;
+    height: 2rem;
 }
 
 schubidu-tracklist ng-md-icon {
