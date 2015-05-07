@@ -9,16 +9,17 @@
 
       function add2tracklist(item, position) {
         position = position || null;
-        var tracks = [];
 
-        if (item.__model__ == 'Track') {
-          tracks.push(item)
+        switch (item.__model__) {
+          case 'Track':
+            mopidy.tracklist.add({tracks: [item], at_position: position});
+            break;
+          case 'Album':
+            mopidy.library.lookup({uri: item.uri}).then(function(data) {
+              mopidy.tracklist.add({tracks: data, at_position: position});
+            });
+            break;
         }
-
-        mopidy.tracklist.add({
-          "tracks": tracks,
-          "at_position": position
-        })
       }
 
       function playAsNext(item) {
