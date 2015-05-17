@@ -8,9 +8,16 @@
   function HomeCtrl($scope, $log, mopidy) {
 
     mopidy.ready(function () {
-      $log.debug('home!')
+      mopidy.playback.getCurrentTrack().then(function(track){
+        if (track) {
+          $scope.currentTrack = track;
+        }
+      });
     });
 
+    mopidy.on('event:trackPlaybackStarted', function(data) {
+      $scope.currentTrack = data.tl_track.track;
+    });
   }
 
 })();
