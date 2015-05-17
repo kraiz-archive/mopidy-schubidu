@@ -1,0 +1,27 @@
+.currenttrack-cover {
+    float: left;
+    padding-right: 10px;
+}
+
+.currenttrack-info {
+    padding-left: 10px;
+}
+
+.currenttrack-info ul.currenttrack-artists {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.currenttrack-info md-list {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.currenttrack-info md-list md-list-item:nth-child(even) {
+    background-color: rgba(0, 0, 0, .02);
+}
+
+.currenttrack-info md-list md-list-item {
+    padding: 5px 1rem 5px;
+    min-height: 0;
+}
