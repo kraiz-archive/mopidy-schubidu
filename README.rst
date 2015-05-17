@@ -36,5 +36,5 @@ Changelog
 
 v0.1.0 (UNRELEASED)
 ----------------------------------------
-
+- Added home button and home screen.
 - Initial release.
