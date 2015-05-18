@@ -1,0 +1,32 @@
+<md-content flex layout-fill layout-padding layout="column">
+  <section>
+    <div class="row" ng-if="!currentTrack">
+      <h3>It's awfully quiet in here</h3>
+    </div>
+
+    <div class="row" ng-if="currentTrack">
+      <img class="md-avatar currenttrack-cover" alt="{{ currentTrack.album.name }}" cover-from="{{ currentTrack.album }}" cover-size="300">
+      <div class="col-md-6 currenttrack-info">
+        <h3>{{ currentTrack.name }}</h3>    
+        <md-list>
+          <md-list-item class="md-line" ng-if="currentTrack.artists">
+            <div class="md-list-item-text">
+              <ul class="currenttrack-artists">
+                <li ng-repeat="artist in currentTrack.artists">{{ artist.name }}</li>
+              </ul>
+            </div>
+          </md-list-item>
+          <md-list-item class="md-line" ng-if="currentTrack.album">
+            <div class="md-list-item-text">{{ currentTrack.album.name }}</div>
+          </md-list-item>
+          <md-list-item class="md-line" ng-if="currentTrack.genre">
+            <div class="md-list-item-text">{{ currentTrack.genre }}</div>
+          </md-list-item>
+          <md-list-item class="md-line" ng-if="currentTrack.length">
+            <div class="md-list-item-text">{{ currentTrack.length|date:'mm:ss' }}</div>
+          </md-list-item>
+        </md-list>
+      </div>
+    </div>
+  </section>
+</md-content>

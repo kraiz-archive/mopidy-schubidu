@@ -7,6 +7,7 @@
       'ngMaterial',
       'angular.filter',
       'schubidu.mopidy',
+      'schubidu.home',
       'schubidu.browse',
       'schubidu.controls',
       'schubidu.tracklist',
@@ -23,6 +24,10 @@
     })
     .config(function ($routeProvider) {
       $routeProvider
+        .when('/home', {
+          controller: 'HomeCtrl',
+          templateUrl: 'app/parts/home/home.html'
+        })
         .when('/browse', {
           controller: 'BrowseCtrl',
           templateUrl: 'app/parts/browse/browse.html'
@@ -31,7 +36,7 @@
           controller: 'SearchResultCtrl',
           templateUrl: 'app/parts/search/search_results.html'
         })
-        .otherwise({redirectTo: '/browse'});
+        .otherwise({redirectTo: '/home'});
     });
 
   function AppCtrl($scope, $mdSidenav, playback) {

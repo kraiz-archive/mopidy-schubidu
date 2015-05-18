@@ -5,6 +5,14 @@
 
 <section layout="row" layout-align="center center">
 
+  <md-button ng-attr-aria-label="Go to homepage"
+             ng-attr-title="Go to homepage"
+             hide-md>
+    <a href="#/home">
+      <ng-md-icon icon="home" size="24"></ng-md-icon>
+    </a>
+  </md-button>  
+
   <md-button ng-click="toggleConsume()"
              ng-attr-aria-label="{{ consume ? 'Keep' : 'Delete'}} tracks after playback"
              ng-attr-title="{{ consume ? 'Keep' : 'Delete'}} tracks after playback"

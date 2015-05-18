@@ -25,17 +25,19 @@
           }
 
           // some items already have images attached
-          if (item.hasOwnProperty('images') && item.images.length > 0) {
-            setImage(item.images[0]);
-          } else {
-            // request images
-            mopidy.ready(function () {
-              mopidy.library.getImages({"uris": [item.uri]}).then(function (data) {
-                if (data[item.uri].length > 0) {
-                  setImage(data[item.uri][0].uri);
-                }
+          if (item) {
+            if (item.hasOwnProperty('images') && item.images.length > 0) {
+              setImage(item.images[0]);
+            } else {
+              // request images
+              mopidy.ready(function () {
+                mopidy.library.getImages({"uris": [item.uri]}).then(function (data) {
+                  if (data[item.uri].length > 0) {
+                    setImage(data[item.uri][0].uri);
+                  }
+                });
               });
-            });
+            }
           }
         }
       };
