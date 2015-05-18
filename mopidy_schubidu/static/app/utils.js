@@ -10,6 +10,7 @@
         link: function (scope, element, attrs) {
           var item = scope.$eval(attrs.coverFrom);
           var size = scope.$eval(attrs.coverSize || 300);
+          var fallback = scope.$eval(attrs.coverFallback || 'folder')
 
           function setImage(url) {
             var completeUrl = url + '=s' + size;

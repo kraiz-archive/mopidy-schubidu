@@ -7,7 +7,7 @@
       'ngMaterial',
       'angular.filter',
       'schubidu.mopidy',
-      'schubidu.home',
+      'schubidu.browse',
       'schubidu.controls',
       'schubidu.tracklist',
       'schubidu.playback',
@@ -23,15 +23,15 @@
     })
     .config(function ($routeProvider) {
       $routeProvider
-        .when('/home', {
-          controller: 'HomeCtrl',
-          templateUrl: 'app/parts/home/home.html'
+        .when('/browse', {
+          controller: 'BrowseCtrl',
+          templateUrl: 'app/parts/browse/browse.html'
         })
         .when('/search', {
           controller: 'SearchResultCtrl',
           templateUrl: 'app/parts/search/search_results.html'
         })
-        .otherwise({redirectTo: '/home'});
+        .otherwise({redirectTo: '/browse'});
     });
 
   function AppCtrl($scope, $mdSidenav, playback) {
@@ -39,7 +39,8 @@
       $mdSidenav(menuId).toggle();
     };
 
-    // put playback service into main controller, so every template can call "playback.playAsNext(item)"
+    // put playback service into main controller, so every template
+    // can call "playback.playAsNext(item)"
     $scope.playback = playback;
   }
 

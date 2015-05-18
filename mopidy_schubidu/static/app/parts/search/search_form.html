@@ -3,6 +3,9 @@
     <md-input-container layout="row" flex md-no-float>
       <ng-md-icon icon="search" size="24" aria-label="Random"></ng-md-icon>
       <input ng-model="searchTerm" type="text" placeholder="Search">
+      <a class="clear" ng-click="searchAll = null">
+          <span class="glyphicon glyphicon-remove"></span>
+      </a>
     </md-input-container>
   </form>
 </md-content>
