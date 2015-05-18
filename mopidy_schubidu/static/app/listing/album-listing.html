@@ -1,0 +1,18 @@
+<md-grid-list
+        md-cols-sm="3" md-cols-md="3" md-cols-lg="4" md-cols-gt-lg="8"
+        md-row-height="1:1"
+        md-gutter="8px" md-gutter-gt-sm="4px">
+  <md-grid-tile
+          ng-repeat="album in albums | limitTo:16 | unique:'uri' track by album.uri"
+          cover-from="{{ album }}" cover-size="200">
+    <div ng-controller="AlbumListingItemCtrl">
+      <div class="actions" layout="column">
+        <md-button class="md-icon-button" ng-click="appendToTracklist()"
+                   aria-label="Append to queue" title="Append to queue">
+          <ng-md-icon icon="playlist_add"></ng-md-icon>
+        </md-button>
+      </div>
+      <md-grid-tile-footer><h3>{{ album.name }}</h3></md-grid-tile-footer>
+    </div>
+  </md-grid-tile>
+</md-grid-list>

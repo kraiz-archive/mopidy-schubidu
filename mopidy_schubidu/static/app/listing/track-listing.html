@@ -1,0 +1,32 @@
+<table class="tracks">
+  <thead>
+  <th>Title</th>
+  <th>Artist</th>
+  <th hide show-gt-md>Album</th>
+  <th class="actions"></th>
+  </thead>
+  <tbody>
+  <tr ng-repeat="track in tracks | unique:'uri' track by track.uri"
+      ng-controller="TrackListingItemCtrl">
+    <td>
+      {{ track.name }}
+    </td>
+    <td>
+      {{ track.artists[0].name }}
+    </td>
+    <td hide show-gt-md>
+      {{ track.album.name }}
+    </td>
+    <td class="track-actions">
+      <md-button class="md-icon-button" ng-click="playAsNext()"
+                 aria-label="Play as next" title="Play as next">
+        <ng-md-icon icon="play_circle_outline"></ng-md-icon>
+      </md-button>
+      <md-button class="md-icon-button" ng-click="appendToTracklist()"
+                 aria-label="Append to queue" title="Append to queue">
+        <ng-md-icon icon="playlist_add" ></ng-md-icon>
+      </md-button>
+    </td>
+  </tr>
+  </tbody>
+</table>
