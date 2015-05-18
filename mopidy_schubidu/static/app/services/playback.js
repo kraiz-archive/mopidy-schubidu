@@ -15,6 +15,7 @@
             mopidy.tracklist.add({tracks: [item], at_position: position});
             break;
           case 'Album':
+          case 'Ref':
             mopidy.library.lookup({uri: item.uri}).then(function (data) {
               mopidy.tracklist.add({tracks: data, at_position: position});
             });

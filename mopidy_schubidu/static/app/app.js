@@ -31,7 +31,7 @@
           controller: 'HomeCtrl',
           templateUrl: 'app/parts/home/home.html'
         })
-        .when('/browse', {
+        .when('/browse/:uri', {
           controller: 'BrowseCtrl',
           templateUrl: 'app/parts/browse/browse.html'
         })

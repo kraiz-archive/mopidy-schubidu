@@ -5,20 +5,20 @@
                         layout-align="center"></md-progress-circular>
 
   <div ng-hide="waitingForResults">
-    <section>
-      <md-grid-list
-              md-cols-sm="2" md-cols-md="2" md-cols-lg="3" md-cols-gt-lg="6"
-              md-row-height="4:3"
-              md-gutter="8px" md-gutter-gt-sm="4px">
-        <md-grid-tile ng-repeat="item in result | unique:'uri' track by item.uri"
-                      cover-from="{{ item }}" cover-size="300">
-          <md-grid-tile-footer>
-            <h3>
-              <a href="#/browse?uri={{ item.uri }}">{{ item.name }}</a>
-            </h3>
-          </md-grid-tile-footer>
-        </md-grid-tile>
-      </md-grid-list>
-    </section>
+    <md-list>
+      <md-list-item ng-repeat="item in result" ng-click="browse(item)">
+        <img class="md-avatar" alt="{{ item.name }}"
+             cover-from="{{ item }}" cover-size="100"/>
+
+        <p>{{ item.name }}</p>
+
+        <div class="md-secondary">
+          <md-button class="md-icon-button" ng-click="playback.appendToTracklist(item)"
+                     aria-label="Append to queue" title="Append to queue">
+            <ng-md-icon icon="playlist_add"></ng-md-icon>
+          </md-button>
+        </div>
+      </md-list-item>
+    </md-list>
   </div>
 </md-content>

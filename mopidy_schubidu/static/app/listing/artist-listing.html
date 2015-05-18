@@ -6,7 +6,13 @@
           ng-repeat="artist in artists | limitTo:6 | unique:'uri' track by artist.uri"
           cover-from="{{ artist }}" cover-size="300">
     <div ng-controller="ArtistListingItemCtrl">
-      <md-grid-tile-footer><h3>{{ artist.name }}</h3></md-grid-tile-footer>
+      <md-grid-tile-footer>
+        <h3>
+          <a href="#/browse/{{ artist.uri }}">
+            {{ artist.name }}
+          </a>
+        </h3>
+      </md-grid-tile-footer>
     </div>
   </md-grid-tile>
 </md-grid-list>

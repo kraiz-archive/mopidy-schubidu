@@ -5,40 +5,24 @@
     .module('schubidu.browse', ['schubidu.mopidy', 'ngMdIcons'])
     .controller('BrowseCtrl', BrowseCtrl);
 
-  function BrowseCtrl($scope, $routeParams, $q, mopidy) {
-    $scope.uri = $routeParams.uri || null;
-    $scope.waitingForResults = true;
+  function BrowseCtrl($scope, $routeParams, $location, $log, mopidy, playback) {
     $scope.result = null;
-
-
-    function mergeRootResults(result) {
-      // request for each backend
-      var backendRequests = result.map(function(item) {
-        return mopidy.library.browse({uri: item.uri})
-      })
-      // when all backend requests are ready
-      $q.all(backendRequests).then(function (data) {
-        $scope.result = data.reduce(function(a, b) {
-          return a.concat(b);
-        });
-        $scope.waitingForResults = false;
-      });
-    }
-
-
+    $scope.waitingForResults = true;
 
     mopidy.ready(function () {
-      mopidy.library.browse({uri: $scope.uri}).then(function (data) {
-        // do not display root browse step, step over merging initial results
-        if ($scope.uri === null) {
-          mergeRootResults(data);
-        } else {
-          $scope.result = data;
-          $scope.waitingForResults = false;
-        }
+      mopidy.library.browse({uri: $routeParams.uri}).then(function (data) {
+        $scope.result = data;
+        $scope.waitingForResults = false;
       });
     });
 
+    $scope.browse = function (item) {
+      if (item.type == 'directory') {
+        $location.path('/browse/' + item.uri);
+      } else {
+        $log.error('Cannot browse into to', item);
+      }
+    };
   }
 
 })();
