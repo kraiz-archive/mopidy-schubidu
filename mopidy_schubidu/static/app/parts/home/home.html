@@ -1,13 +1,16 @@
 <md-content flex layout-fill layout-padding layout="column">
   <section>
-    <div class="row" ng-if="!currentTrack">
+    <div ng-if="!currentTrack">
       <h3>It's awfully quiet in here</h3>
     </div>
 
-    <div class="row" ng-if="currentTrack">
-      <img class="md-avatar currenttrack-cover" alt="{{ currentTrack.album.name }}" cover-from="{{ currentTrack }}" cover-size="300">
-      <div class="col-md-6 currenttrack-info">
-        <h3>{{ currentTrack.name }}</h3>    
+    <div layout="column" layout-gt-md="row" ng-if="currentTrack">
+      <div>
+        <img class="md-avatar currenttrack-cover" alt="{{ currentTrack.album.name }}"
+             cover-from="{{ currentTrack }}" cover-size="300">
+      </div>
+      <div class="currenttrack-info">
+        <h3>{{ currentTrack.name }}</h3>
         <md-list>
           <md-list-item class="md-line" ng-if="currentTrack.artists">
             <div class="md-list-item-text">

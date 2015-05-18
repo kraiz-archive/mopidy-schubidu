@@ -9,8 +9,8 @@
 
 .currenttrack-info ul.currenttrack-artists {
     list-style-type: none;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .currenttrack-info md-list {
