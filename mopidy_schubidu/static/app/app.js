@@ -7,6 +7,7 @@
       'ngMaterial',
       'angular.filter',
       'schubidu.mopidy',
+      'schubidu.notify',
       'schubidu.listing.track',
       'schubidu.listing.album',
       'schubidu.listing.artist',

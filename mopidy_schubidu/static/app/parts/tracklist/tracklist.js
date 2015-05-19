@@ -11,7 +11,7 @@
       };
     });
 
-  function TracklistCtrl($scope, mopidy) {
+  function TracklistCtrl($scope, mopidy, notify) {
     $scope.waitingForResults = true;
     $scope.tltracks = null;
     $scope.currentTlTrack = null;
@@ -30,6 +30,7 @@
     // update from server
     mopidy.on('event:trackPlaybackStarted', function (data) {
       $scope.currentTlTrack = data.tl_track;
+      notify.notifyNowPlaying(data.tl_track.track)
     });
     mopidy.on('event:tracklistChanged', function () {
       mopidy.tracklist.getTlTracks({}).then(function (data) {
