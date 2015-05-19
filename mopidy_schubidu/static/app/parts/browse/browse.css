@@ -4,3 +4,18 @@ md-content.browse .md-secondary ng-md-icon {
 md-content.browse .md-secondary ng-md-icon:hover {
     fill: rgba(0, 0, 0, 0.87);
 }
+
+/* do not style browsable links to much */
+a[href^="#/browse"] {
+    text-decoration: none;
+}
+a[href^="#/browse"]:hover {
+    text-decoration: underline;
+}
+md-grid-tile-footer a[href^="#/browse"] {
+    color: #fff;
+}
+.tracks a[href^="#/browse"],
+.md-list-item-text a[href^="#/browse"]{
+    color: rgba(0,0,0,0.87);
+}

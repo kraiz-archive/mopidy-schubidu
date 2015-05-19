@@ -18,7 +18,11 @@
 
         <div class="md-list-item-text">
           <h3>{{ tltrack.track.name }}</h3>
-          <h4>{{ tltrack.track.artists[0].name }}</h4>
+          <h4>
+            <a href="#/browse/{{ tltrack.track.artists[0].uri }}">
+              {{ tltrack.track.artists[0].name }}
+            </a>
+          </h4>
 
           <div class="actions" layout="column">
             <md-button class="md-icon-button" aria-label="Play now" title="Play now"

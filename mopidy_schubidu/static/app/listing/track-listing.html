@@ -12,10 +12,14 @@
       {{ track.name }}
     </td>
     <td>
-      {{ track.artists[0].name }}
+      <a href="#/browse/{{ track.artists[0].uri }}">
+        {{ track.artists[0].name }}
+      </a>
     </td>
     <td hide show-gt-md>
-      {{ track.album.name }}
+      <a href="#/browse/{{ track.album.uri }}">
+        {{ track.album.name }}
+      </a>
     </td>
     <td class="track-actions">
       <md-button class="md-icon-button" ng-click="playAsNext()"
