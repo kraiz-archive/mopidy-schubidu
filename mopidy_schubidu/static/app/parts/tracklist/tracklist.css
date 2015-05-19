@@ -2,8 +2,20 @@ schubidu-tracklist md-progress-circular {
     margin: 20px auto;
 }
 
+schubidu-tracklist md-list-item.md-3-line .md-list-item-text {
+    padding: 10px 0;
+}
+schubidu-tracklist md-list-item.md-3-line .md-avatar:first-child {
+    margin-top: 10px;
+}
+
+schubidu-tracklist md-list-item.md-3-line .md-list-item-text h3,
+schubidu-tracklist md-list-item.md-3-line .md-list-item-text h4 a {
+    line-height: 1em;
+}
+
 schubidu-tracklist md-list-item.currently-playing .md-list-item-text h3,
-schubidu-tracklist md-list-item.currently-playing .md-list-item-text h4 {
+schubidu-tracklist md-list-item.currently-playing .md-list-item-text h4 a {
     font-weight: bold;
 }
 
@@ -12,13 +24,16 @@ schubidu-tracklist md-list-item .actions {
     top: 0;
     right: 0;
 }
+
 schubidu-tracklist md-list-item .actions button.md-button.md-icon-button {
     height: 2rem;
+    background-color: transparent;
 }
 
 schubidu-tracklist ng-md-icon {
     fill: rgba(0, 0, 0, 0.25);
 }
+
 schubidu-tracklist ng-md-icon:hover {
     fill: rgba(0, 0, 0, 0.87);
 }

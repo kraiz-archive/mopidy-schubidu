@@ -10,7 +10,7 @@
           <h4>Add songs asap!</h4>
         </div>
       </md-list-item>
-      <md-list-item class="md-2-line"
+      <md-list-item class="md-3-line"
                     ng-repeat="tltrack in tltracks track by tltrack.tlid"
                     ng-class="{'currently-playing': tltrack.tlid === currentTlTrack.tlid}"
                     ng-mouseenter="showActions = true" ng-mouseleave="showActions = false">
@@ -22,6 +22,10 @@
           <h4>
             <a href="#/browse/{{ tltrack.track.artists[0].uri }}">
               {{ tltrack.track.artists[0].name }}
+            </a>
+            -
+            <a href="#/browse/{{ tltrack.track.album.uri }}">
+              {{ tltrack.track.album.name }}
             </a>
           </h4>
 
