@@ -12,7 +12,8 @@
       </md-list-item>
       <md-list-item class="md-2-line"
                     ng-repeat="tltrack in tltracks track by tltrack.tlid"
-                    ng-class="{'currently-playing': tltrack.tlid === currentTlTrack.tlid}">
+                    ng-class="{'currently-playing': tltrack.tlid === currentTlTrack.tlid}"
+                    ng-mouseenter="showActions = true" ng-mouseleave="showActions = false">
         <img class="md-avatar" alt="{{ tltrack.track.name }}"
              cover-from="{{ tltrack.track.album }}" cover-size="40"/>
 
@@ -24,12 +25,15 @@
             </a>
           </h4>
 
-          <div class="actions" layout="column">
-            <md-button class="md-icon-button" aria-label="Play now" title="Play now"
+          <div class="actions" layout="column" ng-show="showActions">
+            <md-button class="md-icon-button"
+                       aria-label="Play now" title="Play now"
                        ng-click="playback.playNow(tltrack)">
               <ng-md-icon icon="play_arrow"></ng-md-icon>
             </md-button>
-            <md-button class="md-icon-button" aria-label="Remove from tracklist" title="Remove from tracklist"
+            <md-button class="md-icon-button"
+                       aria-label="Remove from tracklist"
+                       title="Remove from tracklist"
                        ng-click="playback.removeFromTracklist(tltrack)">
               <ng-md-icon icon="delete"></ng-md-icon>
             </md-button>
