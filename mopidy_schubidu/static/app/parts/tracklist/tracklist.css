@@ -5,6 +5,7 @@ schubidu-tracklist md-progress-circular {
 schubidu-tracklist md-list-item.md-3-line .md-list-item-text {
     padding: 10px 0;
 }
+
 schubidu-tracklist md-list-item.md-3-line .md-avatar:first-child {
     margin-top: 10px;
 }
@@ -19,6 +20,10 @@ schubidu-tracklist md-list-item.currently-playing .md-list-item-text h4 a {
     font-weight: bold;
 }
 
+schubidu-tracklist md-list-item {
+    position: relative;
+}
+
 schubidu-tracklist md-list-item .actions {
     position: absolute;
     top: 0;
@@ -26,6 +31,8 @@ schubidu-tracklist md-list-item .actions {
 }
 
 schubidu-tracklist md-list-item .actions button.md-button.md-icon-button {
-    height: 2rem;
-    background-color: transparent;
+    height: 1.2rem;
+    line-height: 36px;
+    background-color: rgba(255, 255, 255, 1);
 }
+
