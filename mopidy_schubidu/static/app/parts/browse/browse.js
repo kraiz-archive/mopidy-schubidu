@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schubidu.browse', ['schubidu.mopidy', 'ngMdIcons'])
+    .module('schubidu.browse', ['schubidu.mopidy'])
     .controller('BrowseCtrl', BrowseCtrl);
 
   function BrowseCtrl($scope, $routeParams, $location, $log, mopidy, playback) {

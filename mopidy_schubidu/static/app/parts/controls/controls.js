@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schubidu.controls', ['schubidu.mopidy', 'ngMdIcons'])
+    .module('schubidu.controls', ['schubidu.mopidy'])
     .directive('schubiduControls', function () {
       return {
         restrict: 'E',

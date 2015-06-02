@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schubidu.home', ['schubidu.mopidy', 'ngMdIcons'])
+    .module('schubidu.home', ['schubidu.mopidy'])
     .controller('HomeCtrl', HomeCtrl);
 
   function HomeCtrl($scope, $log, mopidy) {

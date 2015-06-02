@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schubidu.utils', ['schubidu.mopidy', 'ngMdIcons'])
+    .module('schubidu.utils', ['schubidu.mopidy'])
     .directive('coverFrom', function (mopidy) {
 
       return {

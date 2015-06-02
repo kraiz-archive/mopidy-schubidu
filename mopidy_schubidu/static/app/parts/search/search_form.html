@@ -1,7 +1,8 @@
 <md-content flex>
   <form name="userForm" ng-submit="submit()">
     <md-input-container layout="row" flex md-no-float>
-      <ng-md-icon icon="search" size="24" aria-label="Random"></ng-md-icon>
+      <md-icon md-font-library="material-icons" class="md-dark"
+                 hint="search">&#xE8B6;</md-icon>
       <input ng-model="searchTerm" type="text" placeholder="Search">
       <a class="clear" ng-click="searchAll = null">
           <span class="glyphicon glyphicon-remove"></span>

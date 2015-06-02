@@ -1,6 +1,8 @@
-<md-button class="md-icon-button" aria-label="Show tracklist" title="Show tracklist"
-             ng-click="toggleSidenav('left')" hide-gt-sm>
-  <ng-md-icon icon="queue_music"></ng-md-icon>
+<md-button class="md-icon-button" aria-label="Show tracklist"
+           title="Show tracklist"
+           ng-click="toggleSidenav('left')" hide-gt-sm>
+  <md-icon md-font-library="material-icons" hint="queue_music">
+    &#xE03D;</md-icon>
 </md-button>
 
 <section layout="row" layout-align="center center">
@@ -9,45 +11,55 @@
              ng-attr-title="Go to homepage"
              hide-md>
     <a href="#/home">
-      <ng-md-icon icon="home" size="24"></ng-md-icon>
+      <md-icon md-font-library="material-icons" hint="home">&#xE88A;</md-icon>
     </a>
-  </md-button>  
+  </md-button>
 
   <md-button ng-click="toggleConsume()"
              ng-attr-aria-label="{{ consume ? 'Keep' : 'Delete'}} tracks after playback"
              ng-attr-title="{{ consume ? 'Keep' : 'Delete'}} tracks after playback"
              hide-md>
-    <ng-md-icon icon="track_changes" size="24" ng-class="{'md-highlight': consume}"></ng-md-icon>
+    <md-icon md-font-library="material-icons" hint="track_changes"
+             ng-class="{'md-highlight': consume}">&#xE8E1;</md-icon>
+
   </md-button>
 
   <md-button ng-click="toggleRandom()"
              ng-attr-aria-label="Play tracks in {{ random ? '' : 'random '}}order"
              ng-attr-title="Play tracks in {{ random ? '' : 'random '}}order"
              hide-md>
-    <ng-md-icon icon="shuffle" size="24" ng-class="{'md-highlight': random}"></ng-md-icon>
+    <md-icon md-font-library="material-icons" hint="shuffle"
+             ng-class="{'md-highlight': random}">&#xE043;</md-icon>
   </md-button>
 
   <md-button ng-click="previous()"
              aria-label="Play previous track"
              title="Play previous track">
-    <ng-md-icon icon="skip_previous" size="36"></ng-md-icon>
+    <md-icon md-font-library="material-icons" class="md-28"
+             hint="skip_previous">&#xE045;</md-icon>
   </md-button>
   <md-button ng-click="play()"
              ng-attr-aria-label="{{ playing ? 'Pause' : 'Play' }}"
-             ng-attr-title="{{ playing ? 'Pause' : 'Play' }}" >
-    <ng-md-icon icon="{{ playing ? 'pause' : 'play_arrow' }}" size="36"></ng-md-icon>
+             ng-attr-title="{{ playing ? 'Pause' : 'Play' }}">
+    <md-icon ng-hide="playing" md-font-library="material-icons" class="md-28"
+             hint="play_arrow">&#xE037;</md-icon>
+    <md-icon ng-show="playing" md-font-library="material-icons" class="md-28"
+             hint="pause">&#xE034;</md-icon>
   </md-button>
   <md-button ng-click="next()"
              aria-label="Play next track"
              title="Play next track">
-    <ng-md-icon icon="skip_next" size="36"></ng-md-icon>
+    <md-icon md-font-library="material-icons" class="md-28"
+             hint="skip_next">&#xE044;</md-icon>
   </md-button>
 
   <div class="volume" layout="row" layout-align="center center">
-    <ng-md-icon icon="volume_down" size="16"></ng-md-icon>
+    <md-icon md-font-library="material-icons" class="md-16"
+             hint="volume_down">&#xE04D;</md-icon>
     <md-slider min="0" max="100" aria-label="Volume"
                ng-model="volume"
                ng-model-options="{getterSetter: true}"></md-slider>
-    <ng-md-icon icon="volume_up" size="16"></ng-md-icon>
+    <md-icon md-font-library="material-icons" class="md-16"
+             hint="volume_up">&#xE050;</md-icon>
   </div>
 </section>

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schubidu.listing.album', ['schubidu.mopidy', 'ngMdIcons'])
+    .module('schubidu.listing.album', ['schubidu.mopidy'])
     .controller('AlbumListingItemCtrl', AlbumListingItemCtrl)
     .directive('albumListing', function () {
       return {

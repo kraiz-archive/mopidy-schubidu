@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schubidu.tracklist', ['schubidu.mopidy', 'ngMdIcons'])
+    .module('schubidu.tracklist', ['schubidu.mopidy'])
     .directive('schubiduTracklist', function () {
       return {
         restrict: 'E',

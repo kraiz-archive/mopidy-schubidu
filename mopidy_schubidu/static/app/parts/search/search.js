@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schubidu.search', ['schubidu.mopidy', 'ngMdIcons'])
+    .module('schubidu.search', ['schubidu.mopidy'])
     .controller('SearchResultCtrl', SearchResultCtrl)
     .directive('schubiduSearchform', function () {
       return {

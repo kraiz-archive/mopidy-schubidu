@@ -29,11 +29,3 @@ schubidu-tracklist md-list-item .actions button.md-button.md-icon-button {
     height: 2rem;
     background-color: transparent;
 }
-
-schubidu-tracklist ng-md-icon {
-    fill: rgba(0, 0, 0, 0.25);
-}
-
-schubidu-tracklist ng-md-icon:hover {
-    fill: rgba(0, 0, 0, 0.87);
-}

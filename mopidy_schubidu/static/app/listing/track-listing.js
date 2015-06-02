@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schubidu.listing.track', ['schubidu.mopidy', 'ngMdIcons'])
+    .module('schubidu.listing.track', ['schubidu.mopidy'])
     .controller('TrackListingItemCtrl', TrackListingItemCtrl)
     .directive('trackListing', function () {
       return {
