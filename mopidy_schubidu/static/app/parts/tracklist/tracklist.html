@@ -1,8 +1,8 @@
 <md-content>
-  <md-progress-circular md-mode="indeterminate"
+  <section>
+    <md-progress-circular md-mode="indeterminate"
                         ng-show="waitingForResults"
                         layout-align="center"></md-progress-circular>
-  <section>
     <md-list ng-hide="waitingForResults">
       <md-list-item ng-show="tltracks.length == 0" class="md-2-line">
         <div class="md-list-item-text">
@@ -10,10 +10,32 @@
           <h4>Add songs asap!</h4>
         </div>
       </md-list-item>
-      <md-list-item class="md-3-line"
+      <md-list-item layout="row" layout-align="space-between">
+        <div flex="30">
+          <md-icon md-font-library="material-icons" class="md-dark"
+                 hint="list">&#xE896;</md-icon>
+          {{ tltracks.length }}
+        </div>
+        <md-divider inset ng-if="!$last"></md-divider>
+        <div flex="50">
+          <md-icon md-font-library="material-icons" class="md-dark"
+                   hint="query_builder">&#xE8AE;</md-icon>
+          {{ tltracks | map: 'track.length' | sum | date:'hh:mm:ss' }}
+        </div>
+        <!--
+        <md-button class="md-icon-button"
+                   aria-label="Clear tracklist" title="Clear tracklist"
+                   ng-click="alert('to be implemented soon')">
+          <md-icon md-font-library="material-icons" class="md-dark"
+                   hint="clear">&#xE14C;</md-icon>
+        </md-button>
+        -->
+      </md-list-item>
+      <md-list-item layout-padding class="md-3-line"
                     ng-repeat="tltrack in tltracks track by tltrack.tlid"
                     ng-class="{'currently-playing': tltrack.tlid === currentTlTrack.tlid}"
-                    ng-mouseenter="showActions = true" ng-mouseleave="showActions = false">
+                    ng-mouseenter="showActions = true"
+                    ng-mouseleave="showActions = false">
         <img class="md-avatar" alt="{{ tltrack.track.name }}"
              cover-from="{{ tltrack.track.album }}" cover-size="40"/>
 
@@ -34,18 +56,18 @@
                        aria-label="Play now" title="Play now"
                        ng-click="playback.playNow(tltrack)">
               <md-icon md-font-library="material-icons" class="md-dark"
-                 hint="play_arrow">&#xE037;</md-icon>
+                       hint="play_arrow">&#xE037;</md-icon>
             </md-button>
             <md-button class="md-icon-button"
                        aria-label="Remove from tracklist"
                        title="Remove from tracklist"
                        ng-click="playback.removeFromTracklist(tltrack)">
               <md-icon md-font-library="material-icons" class="md-dark"
-                 hint="delete">&#xE872;</md-icon>
+                       hint="delete">&#xE872;</md-icon>
             </md-button>
           </div>
         </div>
-        <md-divider inset></md-divider>
+        <md-divider inset ng-if="!$last"></md-divider>
       </md-list-item>
 
     </md-list>

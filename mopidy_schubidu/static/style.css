@@ -9,7 +9,7 @@ md-icon.material-icons.md-highlight {
 md-icon.material-icons.md-dark {
     color: rgba(0, 0, 0, 0.25);
 }
-md-icon.material-icons.md-dark:hover {
+button > md-icon.material-icons.md-dark:hover {
     color: rgba(0, 0, 0, 0.87);
 }
 
