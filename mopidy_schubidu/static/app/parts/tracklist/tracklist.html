@@ -20,7 +20,7 @@
         <div flex="50">
           <md-icon md-font-library="material-icons" class="md-dark"
                    hint="query_builder">&#xE8AE;</md-icon>
-          {{ tltracks | map: 'track.length' | sum | date:'hh:mm:ss' }}
+          {{ tltracks | map: 'track.length' | sum | duration }}
         </div>
         <!--
         <md-button class="md-icon-button"
