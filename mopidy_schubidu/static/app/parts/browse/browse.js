@@ -5,7 +5,7 @@
     .module('schubidu.browse', ['schubidu.mopidy'])
     .controller('BrowseCtrl', BrowseCtrl);
 
-  function BrowseCtrl($scope, $routeParams, $location, $log, mopidy, playback) {
+  function BrowseCtrl($scope, $routeParams, $location, $log, mopidy) {
     $scope.result = null;
     $scope.waitingForResults = true;
 
