@@ -4,12 +4,39 @@
                         ng-show="waitingForResults"
                         layout-align="center"></md-progress-circular>
     <md-list ng-hide="waitingForResults">
-      <md-list-item ng-show="tltracks.length == 0" class="md-2-line">
+
+      <!-- Empty Tracklist Info -->
+      <md-list-item ng-if="tltracks.length == 0" class="md-2-line">
         <div class="md-list-item-text">
           <h3>Tracklist empty...</h3>
           <h4>Add songs asap!</h4>
         </div>
       </md-list-item>
+
+      <!-- Current Track -->
+      <md-list-item layout-padding class="md-3-line currently-playing"
+                    ng-mouseenter="showActions = true"
+                    ng-mouseleave="showActions = false"
+                    ng-if="currentTlTrack">
+        <img class="md-avatar" alt="{{ currentTlTrack.track.name }}"
+             cover-from="{{ currentTlTrack.track.album }}" cover-size="40"/>
+
+        <div class="md-list-item-text">
+          <h3>{{ currentTlTrack.track.name }}</h3>
+          <h4>
+            <a href="#/browse/{{ currentTlTrack.track.artists[0].uri }}">
+              {{ currentTlTrack.track.artists[0].name }}
+            </a>
+            -
+            <a href="#/browse/{{ currentTlTrack.track.album.uri }}">
+              {{ currentTlTrack.track.album.name }}
+            </a>
+          </h4>
+        </div>
+        <md-divider inset></md-divider>
+      </md-list-item>
+
+      <!-- Tracklist Status -->
       <md-list-item layout="row" layout-align="space-between">
         <div flex="30">
           <md-icon md-font-library="material-icons" class="md-dark"
@@ -22,20 +49,23 @@
                    hint="query_builder">&#xE8AE;</md-icon>
           {{ tltracks | map: 'track.length' | sum | duration }}
         </div>
-        <!--
+
         <md-button class="md-icon-button"
                    aria-label="Clear tracklist" title="Clear tracklist"
-                   ng-click="alert('to be implemented soon')">
+                   ng-click="clearTracklist()">
           <md-icon md-font-library="material-icons" class="md-dark"
                    hint="clear">&#xE14C;</md-icon>
         </md-button>
-        -->
+
       </md-list-item>
+
+      <!-- Tracklist -->
       <md-list-item layout-padding class="md-3-line"
                     ng-repeat="tltrack in tltracks track by tltrack.tlid"
                     ng-class="{'currently-playing': tltrack.tlid === currentTlTrack.tlid}"
                     ng-mouseenter="showActions = true"
-                    ng-mouseleave="showActions = false">
+                    ng-mouseleave="showActions = false"
+                    ng-if="tltrack.tlid !== currentTlTrack.tlid">
         <img class="md-avatar" alt="{{ tltrack.track.name }}"
              cover-from="{{ tltrack.track.album }}" cover-size="40"/>
 

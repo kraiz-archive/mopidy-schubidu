@@ -22,7 +22,7 @@
         $scope.waitingForResults = false;
         $scope.tltracks = data;
       });
-      mopidy.playback.getCurrentTlTrack({}).then(function(data){
+      mopidy.playback.getCurrentTlTrack({}).then(function (data) {
         $scope.currentTlTrack = data;
       });
     });
@@ -37,6 +37,22 @@
         $scope.tltracks = data;
       });
     });
+
+    $scope.clearTracklist = function () {
+      if (confirm('Sure to delete current tracklist?')) {
+        // don't use clear() as this would remove currently playing track
+        mopidy.tracklist.remove({
+          tlid: $scope.tltracks
+            .map(function (t) {
+              return t.tlid
+            })
+            .filter(function (t) {
+              return t != $scope.currentTlTrack.tlid
+            })
+        });
+      }
+
+    }
   }
 
 })();
